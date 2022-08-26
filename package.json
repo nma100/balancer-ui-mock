@@ -1,0 +1,25 @@
+{
+  "name": "balancer-ui-mock",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "css-compile": "node-sass --include-path node_modules --output-style compressed css -o css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nma100/balancer-ui-mock.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nma100/balancer-ui-mock/issues"
+  },
+  "homepage": "https://github.com/nma100/balancer-ui-mock#readme",
+  "dependencies": {
+    "bootstrap": "^5.2.0",
+    "bootstrap-icons": "^1.9.1",
+    "node-sass": "^7.0.1"
+  }
+}

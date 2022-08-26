@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Balancer Alternative UI</title>
+    <link href="../css/portfolio-light.1.css" rel="stylesheet">
+    <link href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+     <link href="https://fonts.googleapis.com/css2?family=Ubuntu" rel="stylesheet" >
+  </head>
+  <body class="bg-light">
+
+      <nav class="navbar sticky-top navbar-expand-lg bg-white bg-gradient shadow py-3">
+        <div class="container-fluid">
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="../image/logo-light.svg" class="me-2" alt="" width="40" height="40"> <span class="fs-3 fw-semibold pb-1 me-3">Balancer</span> <div id="brand-text" class="navbar-text d-none d-lg-block fs-4">Minimal</div>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav d-flex d-lg-none fs-5 mt-2">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Trade</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Invest</a>
+                </li>
+              </ul>
+              <div class="ms-auto d-none d-lg-block">
+                <button class="btn btn-light shadow-sm me-2" type="button"><i class="bi bi-wallet me-1"></i> 0x9AE4...B425</button>
+                <button class="btn btn-light shadow-sm" type="button"><i class="bi bi-sun"></i></button>
+              </div>
+          </div>
+        </div>
+      </nav>
+      
+    <div class="container-fluid">
+      <div class="row">
+        <div id="sidebar-container" class="col-lg-2 d-none d-lg-block  bg-white shadow">
+          <div id="sidebar-inner" class="py-4 px-3 d-flex flex-column">
+              <select class="form-select" aria-label="">
+                <option value="1" selected>Ethereum</option>
+                <option value="2">Polygon</option>
+                <option value="3">Arbitrum</option>
+              </select>
+              <hr class="">
+              <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                  <a href="#" class="nav-link active" aria-current="page">
+                    <i class="bi bi-list-task me-1"></i> Portfolio
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-arrow-down-up me-1"></i> Trade
+                  </a>
+                </li>
+                <li>
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-cash-stack me-1"></i> Invest
+                  </a>
+                </li>
+            </ul>
+            
+            <hr class="">
+            <div class="d-flex justify-content-around fs-5">
+              <a href="/" class="link-dark"><i class="bi bi-github"></i></a> 
+              <a href="/" class="link-dark"><i class="bi bi-discord"></i></a> 
+              <a href="/" class="link-dark"><i class="bi bi-twitter"></i></a> 
+              <a href="/" class="link-dark"><i class="bi bi-envelope-fill"></i></a>
+            </div>
+          </div>
+        </div>
+        <div id="main-col" class="col-12 col-lg-10 ms-lg-auto px-4 px-lg-5">
+          <div class="d-flex d-lg-none mt-2 mb-4">
+               <select id="select-chain" class="form-select me-auto" aria-label="Select blockchain">
+                <option value="1" selected>Ethereum</option>
+                <option value="2">Polygon</option>
+                <option value="3">Arbitrum</option>
+              </select>   
+              <button class="btn btn-light text-nowrap shadow-sm me-2" type="button"><i class="bi bi-wallet me-1"></i> 0x9AE4...B425</button>
+              <button class="btn btn-light shadow-sm" type="button"><i class="bi bi-sun"></i></button>
+          </div>
+
+          <div id="invest-info" class="bg-white bg-opacity-75 bg-gradient text-center rounded shadow py-2 mb-5">
+            <div class="title fs-1">My Balancer investments</div>
+            <div class="total fs-2 text-dark text-opacity-50 fw-bold">$7,850</div> 
+            <div class="veBAL fs-3">$2,540 in veBAL</div>
+          </div>
+          
+          <h2 class="mb-4 pt-2">My investments</h2>
+
+          <div id="unstaked-pools" class="mb-5">
+            <h4 class="mb-3">Unstaked pools</h4>
+            <div class="table-responsive">
+              <table class="table bg-white bg-opacity-75 shadow-sm align-middle">
+                <thead>
+                  <tr>
+                    <th scope="col" class="d-none d-md-table-cell"></th>
+                    <th scope="col">Composition</th>
+                    <th scope="col"><div class="text-nowrap">My balance</div></th>
+                    <th scope="col"><div class="text-end text-nowrap">My APR</div></th>
+                    <th scope="col"><div class="text-center text-nowrap">Actions</div></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="d-none d-md-table-cell px-3">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0x6B175474E89094C44Da98b954EedeAC495271d0F/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                    </td>
+                    <td>
+                      <span class="bg-dark bg-opacity-10 px-2 py-1 me-1 rounded-pill">USDT</span>
+                      <span class="bg-dark bg-opacity-10 px-2 py-1 me-1 rounded-pill">DAI</span>
+                      <span class="bg-dark bg-opacity-10 px-2 py-1 rounded-pill">USDC</span>
+                    </td>
+                    <td>$4,089</td>
+                    <td class="text-end text-nowrap">< 0.01% <i class="bi bi-info-circle text-black text-opacity-50" style="font-size: 90%;"></i></td>
+                    <td class="text-center text-black text-opacity-50 small">N/A</td>
+                  </tr>
+                  <tr>
+                    <td class="d-none d-md-table-cell px-3">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                    </td>
+                    <td>
+                      <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-1 rounded"><div class="me-1">WETH</div><div class="text-dark text-opacity-75" style="font-size: 70%">50%</div></div>
+                      <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-1 rounded"><div class="me-1">USDC</div><div class="text-dark text-opacity-75" style="font-size: 70%">50%</div></div>
+                    </td>
+                    <td>$454</td>
+                    <td class="text-end text-nowrap">65.73% - 164.23% <i class="bi bi-stars text-warning" style="font-size: 90%;"></i></td>
+                    <td class="text-center"><button type="button" class="btn btn-dark btn-sm">Stake</button></td>
+                  </tr>
+                  <tr>
+                    <td class="d-none d-md-table-cell px-3">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                    </td>
+                    <td>
+                      <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-1 rounded"><div class="me-1">WBTC</div><div class="text-dark text-opacity-75" style="font-size: 70%">50%</div></div>
+                      <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-1 rounded"><div class="me-1">USDC</div><div class="text-dark text-opacity-75" style="font-size: 70%">50%</div></div>
+                    </td>
+                    <td>$18</td>
+                    <td class="text-end text-nowrap">1.74% <i class="bi bi-info-circle text-black text-opacity-50" style="font-size: 90%;"></i></td>
+                    <td class="text-center text-black text-opacity-50 small">N/A</td>
+                  </tr>
+                  <tr>
+                    <td class="d-none d-md-table-cell px-3">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                    </td>
+                    <td>
+                      <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-2 rounded"><div class="me-1">WBTC</div><div class="text-dark text-opacity-75" style="font-size: 70%">50%</div></div>
+                      <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-2 rounded"><div class="me-1">WETH</div><div class="text-dark text-opacity-75" style="font-size: 70%">50%</div></div>
+                    </td>
+                    <td>$326</td>
+                    <td class="text-end text-nowrap">162.91% <i class="bi bi-stars text-warning" style="font-size: 90%;"></i></td>
+                    <td class="text-center"><button type="button" class="btn btn-dark btn-sm">Stake</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div><!-- Unstaked pools -->
+          
+          <div id="staked-pools" class="mb-5">
+            <h4 class="mb-3">Staked pools</h4>
+            <div class="table-responsive">
+              <table class="table bg-white bg-opacity-75 shadow-sm  align-middle">
+                <thead>
+                  <tr>
+                    <th scope="col" class="d-none d-md-table-cell"></th>
+                    <th scope="col">Composition</th>
+                    <th scope="col"><div class="text-nowrap">My balance</div></th>
+                    <th scope="col"><div class="text-center text-nowrap">My boost</div></th>
+                    <th scope="col"><div class="text-center text-nowrap">My APR</div></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="d-none d-md-table-cell  px-3">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                      <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                    </td>
+                    <td>
+                      <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-2 rounded"><div class="me-1">WBTC</div><div class="text-dark text-opacity-75" style="font-size: 70%">50%</div></div>
+                      <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-2 rounded"><div class="me-1">WETH</div><div class="text-dark text-opacity-75" style="font-size: 70%">50%</div></div>
+                    </td>
+                    <td>$1837</td>
+                    <td class="text-center text-nowrap">1.021x</td>
+                    <td class="text-center text-nowrap">162.91% <i class="bi bi-stars text-warning" style="font-size: 90%;"></i></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div><!-- staked pools -->
+          
+          <div id="veBAL-liquidity">
+              <h4 class="pool-title mb-3">veBAL protocol liquidity</h4>
+              <div class="table-responsive">
+                <table class="table bg-white bg-opacity-75 shadow-sm align-middle">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="d-none d-md-table-cell"></th>
+                      <th scope="col">Composition</th>
+                      <th scope="col"><div class="text-nowrap">My balance</div></th>
+                      <th scope="col"><div class="text-center text-nowrap">My APR</div></th>
+                      <th scope="col"><div class="text-center text-nowrap">Expiry date</div></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="d-none d-md-table-cell px-3">
+                        <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xba100000625a3754423978a60c9317c58a424e3D/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                        <img src="https://assets-cdn.trustwallet.com/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png" style="width: 1.2rem; height: 1.2rem;">
+                      </td>
+                      <td>
+                        <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-2 rounded"><div class="me-1">BAL</div><div class="text-dark text-opacity-75" style="font-size: 70%">80%</div></div>
+                        <div class="d-inline-flex align-items-center bg-dark bg-opacity-10 text-nowrap px-2 py-1 me-2 rounded"><div class="me-1">WETH</div><div class="text-dark text-opacity-75" style="font-size: 70%">20%</div></div>
+                      </td>
+                      <td>$2540</td>
+                      <td class="text-center text-nowrap">5.83% - 472.58% <i class="bi bi-stars text-primary" style="font-size: 90%;"></i></td>
+                      <td class="text-center text-nowrap">27 Jul 2023</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+          </div><!-- veBAL Liquidity -->
+
+        </div>
+      </div>
+    </div>
+     
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
