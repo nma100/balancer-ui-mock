@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Balancer Alternative UI</title>
+  <link href="../css/pool-list.css" rel="stylesheet">
+  <link href="../node_modules/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Ubuntu" rel="stylesheet">
+</head>
+
+<body class="bg-dark text-white bg-opacity-75">
+
+  <nav
+    class="navbar navbar-dark sticky-top navbar-expand-lg bg-dark bg-gradient shadow py-3 border-bottom border-light border-opacity-25">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="../image/logo-dark.svg" class="me-2" alt="" width="40" height="40"> <span
+          class="fs-3 fw-semibold pb-1 me-3">Balancer</span>
+        <div id="brand-text" class="navbar-text d-none d-lg-block fs-4">Minimal</div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav d-flex d-lg-none fs-5 mt-2">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Trade</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Invest</a>
+          </li>
+        </ul>
+        <div class="ms-auto d-none d-lg-block">
+          <button class="btn btn-outline-light me-2" type="button"><i class="bi bi-wallet me-1"></i>
+            0x9AE4...B425</button>
+          <button class="btn btn-outline-light" type="button"><i class="bi bi-moon-fill"></i></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div id="sidebar-container" class="col-lg-2 d-none d-lg-block bg-dark shadow">
+        <div id="sidebar-inner" class="py-4 px-3 d-flex flex-column">
+          <select class="form-select" aria-label="">
+            <option value="1">Ethereum</option>
+            <option value="2" selected>Polygon</option>
+            <option value="3">Arbitrum</option>
+          </select>
+          <hr class="text-white text-opacity-75 my-4">
+          <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+              <a href="#" class="nav-link active">
+                <i class="bi bi-stars me-2"></i> Invest
+              </a>
+            </li>            
+            <li>
+              <a href="#" class="nav-link">
+                <i class="bi bi-arrow-down-up me-2"></i> Trade
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link" aria-current="page">
+                <i class="bi bi-list-task me-2"></i> Portfolio
+              </a>
+            </li>
+          </ul>
+
+          <hr class="text-light text-opacity-75">
+          <div class="d-flex justify-content-around fs-4">
+            <a href="/" class="link-light"><i class="bi bi-github"></i></a>
+            <a href="/" class="link-light"><i class="bi bi-discord"></i></a>
+            <a href="/" class="link-light"><i class="bi bi-twitter"></i></a>
+            <a href="/" class="link-light"><i class="bi bi-envelope-fill"></i></a>
+          </div>
+        </div>
+      </div>
+      <div id="main-col" class="col-12 col-lg-10 ms-lg-auto px-4 px-lg-5">
+        <div class="d-flex d-lg-none mt-2 mb-4">
+          <select id="select-chain" class="form-select me-auto" aria-label="Select blockchain">
+            <option value="1">Ethereum</option>
+            <option value="2" selected>Polygon</option>
+            <option value="3">Arbitrum</option>
+          </select>
+          <button class="btn btn-dark text-nowrap me-2" type="button"><i class="bi bi-wallet me-1"></i>
+            0x9AE4...B425</button>
+          <button class="btn btn-dark" type="button"><i class="bi bi-sun"></i></button>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center bg-dark rounded shadow p-4 mb-4">
+          <div class="fs-2">Deposit assets and earn yield</div>
+          <div>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Search pool" aria-label="Search pool" aria-describedby="Search pool">
+              <button class="btn btn-outline-light" type="button" id="button-search"><i class="bi bi-search"></i></button>
+            </div>            
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table id="pools" class="table table-dark align-middle m-0">
+            <thead>
+              <tr>
+                <th scope="col" class="d-none d-md-table-cell"></th>
+                <th scope="col">Composition</th>
+                <th scope="col" class="text-center d-none d-md-table-cell">TVL</th>
+                <th scope="col" class="text-center text-nowrap d-none d-md-table-cell">Volume (24h)</th>
+                <th scope="col" class="text-center">APR</th>
+                <th scope="col" class="text-center">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="d-none d-md-table-cell ">
+                  <div class="pool-icons d-flex justify-content-center flex-wrap">
+                    <div><img src="../image/wmatic.705ec800.svg" alt="WMATIC" title="WMATIC"></div>
+                    <div><img src="../image/generic-5.7e828e71.svg" alt="STMATIC" title="STMATIC"></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="pool-tokens d-flex flex-wrap">
+                    <div class="bg-light bg-opacity-10 px-2 py-1 rounded-pill">WMATIC</div>
+                    <div class="bg-light bg-opacity-10 px-2 py-1 rounded-pill">stMATIC</div>
+                  </div>
+                </td>
+                <td class="d-none d-md-table-cell text-center">$245,79M</td>
+                <td class="d-none d-md-table-cell text-center">$34,23M</td>
+                <td class="text-center text-nowrap"><span class="pe-1">6.32%</span> <a href="#" class="apr-breakdown" data-bs-toggle="tooltip"
+                    data-bs-title="<div class=&quot;px-3 pt-3 pb-2 text-start&quot;><p><strong>Total APR</strong> : 6.32%</p><p>Swap fees : 0%</p><p>Reward APR : 1.35%</p><p>Token APR : 3.27%</p></div>"><i
+                      class="bi bi-stars text-warning"></i></a></td>
+                <td class="">
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light me-1">Deposit</button>
+                    <button type="button" class="btn btn-outline-light ms-1" disabled>Withdraw</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="d-none d-md-table-cell ">
+                  <div class="pool-icons d-flex justify-content-center flex-wrap">
+                    <div><img src="../image/wbtc.93237c24.svg" alt="WBTC" title="WBTC"></div>
+                    <div><img src="../image/usdc.c8fcab48.svg" alt="USDC" title="USDC"></div>
+                    <div><img src="../image/weth.093b3f87.svg" alt="WETH" title="WETH"></div>
+                  </div> 
+                </td>
+                <td>
+                  <div class="pool-tokens d-flex flex-wrap">
+                    <div class="d-inline-flex align-items-center bg-light bg-opacity-10 text-nowrap px-2 py-1 rounded">
+                      <div class="me-1">WBTC</div>
+                      <div class="text-light text-opacity-75" style="font-size: 70%;">33%</div>
+                    </div>
+                    <div class="d-inline-flex align-items-center bg-light bg-opacity-10 text-nowrap px-2 py-1 rounded">
+                      <div class="me-1">USDC</div>
+                      <div class="text-light text-opacity-75" style="font-size: 70%;">33%</div>
+                    </div>
+                    <div class="d-inline-flex align-items-center bg-light bg-opacity-10 text-nowrap px-2 py-1 rounded">
+                      <div class="me-1">WETH</div>
+                      <div class="text-light text-opacity-75" style="font-size: 70%;">33%</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="d-none d-md-table-cell text-center">$123,44M</td>
+                <td class="d-none d-md-table-cell text-center">$10,23M</td>
+                <td class="text-center text-nowrap"><span class="pe-1">3.56%</span> <a href="#" class="apr-breakdown"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="<div class=&quot;px-3 pt-3 pb-2 text-start&quot;><p><strong>Total APR</strong> : 3.56%</p><p>Swap fees : 1.68%</p></div>"><i
+                      class="bi bi-info-circle text-white text-opacity-75"></i></a></td>
+                <td class="">
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light me-1">Deposit</button>
+                    <button type="button" class="btn btn-outline-light ms-1">Withdraw</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="d-none d-md-table-cell ">
+                  <div class="pool-icons d-flex justify-content-center flex-wrap">
+                    <div><img src="../image/usdc.c8fcab48.svg" alt="USDC" title="USDC"></div>
+                    <div><img src="../image/generic-5.7e828e71.svg" alt="FITT" title="FITT"></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="pool-tokens d-flex flex-wrap">
+                    <div class="d-inline-flex align-items-center bg-light bg-opacity-10 text-nowrap px-2 py-1 rounded">
+                      <div class="me-1">USDC</div>
+                      <div class="text-light text-opacity-75" style="font-size: 70%;">20%</div>
+                    </div>
+                    <div class="d-inline-flex align-items-center bg-light bg-opacity-10 text-nowrap px-2 py-1 rounded">
+                      <div class="me-1">FITT</div>
+                      <div class="text-light text-opacity-75" style="font-size: 70%;">80%</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="d-none d-md-table-cell text-center">$72,79M</td>
+                <td class="d-none d-md-table-cell text-center">$4,23M</td>
+                <td class="text-center text-nowrap"><span class="pe-1">0.13%</span> <a href="#" class="apr-breakdown"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="<div class=&quot; pt-3 pb-2 text-start&quot;><p><strong>Total APR</strong> : 0.13%</p><p>Swap fees : 0.13%</p></div>"><i
+                      class="bi bi-info-circle text-white text-opacity-75"></i></a></td>
+                <td class="">
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light me-1">Deposit</button>
+                    <button type="button" class="btn btn-outline-light ms-1" disabled>Withdraw</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="d-none d-md-table-cell ">
+                  <div class="pool-icons d-flex justify-content-center flex-wrap">
+                    <div><img src="../image/generic-5.7e828e71.svg" alt="BB-AM-DAI" title="BB-AM-DAI"></div>
+                    <div><img src="../image/generic-5.7e828e71.svg" alt="BB-AM-USDC" title="BB-AM-USDC"></div>
+                    <div><img src="../image/generic-5.7e828e71.svg" alt="BB-AM-USDT" title="BB-AM-USDT"></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="pool-tokens d-flex flex-wrap">
+                    <div class="bg-light bg-opacity-10 px-2 py-1 rounded-pill">bb-am-DAI</div>
+                    <div class="bg-light bg-opacity-10 px-2 py-1 rounded-pill">bb-am-USDC</div>
+                    <div class="bg-light bg-opacity-10 px-2 py-1 rounded-pill">bb-am-USDT</div>
+                  </div>
+                </td>
+                <td class="d-none d-md-table-cell text-center">$34,11M</td>
+                <td class="d-none d-md-table-cell text-center">$2,23M</td>
+                <td class="text-center text-nowrap"><span class="pe-1">4.74%</span> <a href="#" class="apr-breakdown"
+                    data-bs-toggle="tooltip"
+                    data-bs-title="<div class=&quot; pt-3 pb-2 text-start&quot;><p><strong>Total APR</strong> : 4.74%</p><p>Swap fees : 0.15%</p><p>Token APR : 0.71%</p></div>"><i
+                      class="bi bi-stars text-warning"></i></a></td>
+                <td class="">
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light me-1">Deposit</button>
+                    <button type="button" class="btn btn-outline-light ms-1">Withdraw</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="d-none d-md-table-cell ">
+                  <div class="pool-icons d-flex justify-content-center flex-wrap">
+                    <div><img src="../image/wmatic.705ec800.svg" alt="WMATIC" title="WMATIC"></div>
+                    <div><img src="../image/usdc.c8fcab48.svg" alt="USDC" title="USDC"></div>
+                    <div><img src="../image/weth.093b3f87.svg" alt="WETH" title="WETH"></div>
+                    <div><img src="../image/bal.fabec0b8.svg" alt="BAL" title="BAL"></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="pool-tokens d-flex flex-wrap">
+                    <div class="d-inline-flex align-items-center bg-light bg-opacity-10 text-nowrap px-2 py-1 rounded">
+                      <div class="me-1">WMATIC</div>
+                      <div class="text-light text-opacity-75" style="font-size: 70%;">25%</div>
+                    </div>
+                    <div class="d-inline-flex align-items-center bg-light bg-opacity-10 text-nowrap px-2 py-1 rounded">
+                      <div class="me-1">USDC</div>
+                      <div class="text-light text-opacity-75" style="font-size: 70%;">25%</div>
+                    </div>
+                    <div class="d-inline-flex align-items-center bg-light bg-opacity-10 text-nowrap px-2 py-1 rounded">
+                      <div class="me-1">WETH</div>
+                      <div class="text-light text-opacity-75" style="font-size: 70%;">25%</div>
+                    </div>
+                    <div class="d-inline-flex align-items-center bg-light bg-opacity-10 text-nowrap px-2 py-1 rounded">
+                      <div class="me-1">BAL</div>
+                      <div class="text-light text-opacity-75" style="font-size: 70%;">25%</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="d-none d-md-table-cell text-center">$1,09M</td>
+                <td class="d-none d-md-table-cell text-center">$122,21M</td>
+                <td class="text-center text-nowrap"><span class="pe-1">8.69%</span> <a href="#" class="apr-breakdown" data-bs-toggle="tooltip"
+                    data-bs-title="<div class=&quot; pt-3 pb-2 text-start&quot;><p><strong>Total APR</strong> : 8.69%</p><p>Swap fees : 6.68%</p></div>"><i
+                      class="bi bi-info-circle text-white text-opacity-75"></i></a></td>
+                <td class="">
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light me-1">Deposit</button>
+                    <button type="button" class="btn btn-outline-light ms-1" disabled>Withdraw</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td class="d-none d-md-table-cell ">
+                  <div class="pool-icons d-flex justify-content-center flex-wrap">
+                    <div><img src="../image/usdc.c8fcab48.svg" alt="USDC" title="USDC"></div>
+                    <div><img src="../image/dai.b262ea99.svg" alt="DAI" title="DAI"></div>
+                    <div><img src="../image/generic-5.7e828e71.svg" alt="MIMATIC" title="MIMATIC"></div>
+                    <div><img src="../image/usdt.b8dd2f54.svg" alt="USDT" title="USDT"></div>
+                  </div>
+                </td>
+                <td>
+                  <div class="pool-tokens d-flex flex-wrap">
+                    <div class="bg-light bg-opacity-10 px-2 py-1 rounded-pill">USDC</div>
+                    <div class="bg-light bg-opacity-10 px-2 py-1 rounded-pill">DAI</div>
+                    <div class="bg-light bg-opacity-10 px-2 py-1 rounded-pill">miMATIC</div>
+                    <div class="bg-light bg-opacity-10 px-2 py-1 rounded-pill">USDT</div>
+                  </div>
+                  </td>
+                <td class="d-none d-md-table-cell text-center">$115,79K</td>
+                <td class="d-none d-md-table-cell text-center">$12,23K</td>
+                <td class="text-center text-nowrap"><span class="pe-1">6.19%</span> <a href="#" class="apr-breakdown" data-bs-toggle="tooltip"
+                    data-bs-title="<div class=&quot; pt-3 pb-2 text-start&quot;><p><strong>Total APR</strong> : 6.19%</p><p>Swap fees : 0.32%</p></div>"><i
+                      class="bi bi-info-circle text-white text-opacity-75"></i></a></td>
+                <td class="">
+                  <div class="d-flex">
+                    <button type="button" class="btn btn-outline-light me-1">Deposit</button>
+                    <button type="button" class="btn btn-outline-light ms-1" disabled>Withdraw</button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td  class="text-center py-2" colspan="6">
+                  <button type="button" class="btn btn-link btn-lg link-light text-decoration-none">
+                      <span class="me-1">Load more</span> <i class="bi bi-chevron-down"></i>
+                  </button>
+                </td>
+              </tr>                
+            </tbody>
+
+          </table>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
